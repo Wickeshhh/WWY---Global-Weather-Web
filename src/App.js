@@ -28,7 +28,13 @@ function App() {
 
   return (
     <div className="App">
-      <div className="image-container"></div>
+      {/* <div className="image-container"></div> */}
+      <div className="video-container">
+        <video autoPlay loop muted>
+          <source src="video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
       <div className="weather-container">
         <h1 className="title">Weathering with You</h1>
         <h3>Global weather updates in a single click!</h3>
