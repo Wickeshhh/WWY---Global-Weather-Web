@@ -1,38 +1,274 @@
+/* General styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom right, #4facfe, #00f2fe);
+  color: white;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Centering the .App container */
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+  margin: 0 20px;
+  opacity: 0;
+  animation: fadeIn 1s forwards ease-in-out; /* Smooth fade-in animation */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.image-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?cs=srgb&dl=pexels-jplenio-1118873.jpg&fm=jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  opacity: 0.7;
+
+  /* Add transition */
+  transition: opacity 0.3s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Title styling */
+.title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease; /* Smooth transition on appearance */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.title:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Form styling */
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 15px;
+}
+
+/* Input styling */
+.input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 25px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
   color: white;
+  font-size: 1.1em;
+  text-align: center;
+  outline: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.input:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05); /* Slight zoom effect on focus */
 }
 
-@keyframes App-logo-spin {
+/* Button styling */
+.btn {
+  padding: 12px 30px;
+  border-radius: 25px;
+  background-color: #ff6f61;
+  border: none;
+  color: white;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #ff4c39;
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.btn:active {
+  transform: scale(0.98); /* Button press effect */
+}
+
+/* Error message styling */
+.error {
+  color: #ff6f61;
+  margin-top: 10px;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards ease-in-out; /* Error fades in smoothly */
+}
+
+/* Weather info styling */
+.weather-info {
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(20px); /* Slide up effect */
+  animation: fadeInUp 0.5s ease-in-out forwards; /* Smooth slide and fade-in */
+}
+
+.weather-info h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.5em;
+}
+
+.weather-info p {
+  margin: 5px 0;
+  font-size: 1.1em;
+}
+
+/* Toggle button styling */
+.unit-toggle-btn {
+  background: none;
+  border: none;
+  color: #ff6f61;
+  font-size: 0.9em;
+  margin-left: 10px;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.unit-toggle-btn:hover {
+  color: #ff4c39;
+  transform: scale(1.05); /* Zoom effect on hover */
+}
+
+/* Footer styling */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(50, 50, 50, 0.8) 100%);
+  color: white;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 1em;
+  box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.5px;
+  z-index: 9999;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 1.1em;
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer-link {
+  color: #ff6f61;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #ff4c39;
+  text-shadow: 0 0 5px rgba(255, 76, 57, 0.8);
+  text-decoration: underline;
+}
+
+.footer::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ff6f61;
+  margin: 0 auto 10px auto;
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* General styling for mobile */
+@media (max-width: 768px) {
+  .App {
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 2em;
+  }
+
+  .input {
+    font-size: 1em;
+    padding: 10px;
+  }
+
+  .btn {
+    padding: 10px 25px;
+    font-size: 1em;
+  }
+
+  .weather-info h3 {
+    font-size: 1.3em;
+  }
+
+  .weather-info p {
+    font-size: 1em;
+  }
+
+  .footer {
+    font-size: 0.9em;
+    padding: 10px;
+  }
+}
+
+/* Media query for larger tablets and desktops */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .App {
+    max-width: 75%;
+  }
+
+  .title {
+    font-size: 2.2em;
+  }
+
+  .footer {
+    font-size: 1em;
   }
 }
